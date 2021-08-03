@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- 	<meta name="viewport" content="width=device-width,initial-scale=1"> -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="css/auto-ml.css">
+	<title>TL test</title>
+</head>
+   
+<body>    
+
+<!--         <div th:text="${msg}"></div> -->
+			<div class="contents_panel">
+			
+<!-- 				<div class="panel_scroller"> -->
+				
+					<h3 class="main_title">main title단</h3>
+					<b>타이틀안</b>
+				
+					<!-- [D] 모든 컨텐츠를 <div class="dash_board"> 하위로 넣어주세요 -->
+					<div class="dash_board">
+					<b>대시보드 하위</b>
+					</div>
+					<div>
+					  <label th:for="${#ids.next('covered')}" th:text="#{seedstarter.covered}">Covered</label>
+					  <input type="checkbox" th:field="*{covered}" />
+					</div>
+					
+				<ul>
+				  <li th:each="feat : ${allFeatures}">
+				    <input type="checkbox" th:field="*{features}" th:value="${feat}" />
+				    <label th:for="${#ids.prev('features')}" 
+				           th:text="#{${'seedstarter.feature.' + feat}}">Heating</label>
+				      <input type="checkbox" th:field="*{features}" th:value="${feat}" />
+				    <label th:for="${#ids.prev('features')}" 
+				           th:text="#{${'seedstarter.feature.' + feat}}">Heating2</label>
+				  </li>
+				</ul>
+				
+			</div>
+
+
+        
+</body>
+</html>
